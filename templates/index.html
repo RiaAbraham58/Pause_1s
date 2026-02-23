@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pause 1s - Website Trust Checker</title>
+
+    <style>
+        body{
+            margin:0;
+            padding:0;
+            height:100vh;
+            font-family: Arial, sans-serif;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background-color:#E0F2F1;
+        }
+
+        .container{
+            width:80%;
+            max-width:600px;
+            text-align:center;
+        }
+
+        h1{
+            font-size:36px;
+            letter-spacing:2px;
+            margin-bottom:10px;
+            color:#004D40;
+        }
+
+        .tagline{
+            font-size:16px;
+            margin-bottom:40px;
+            color:#004D40;
+        }
+
+        .url-input{
+            width:100%;
+            padding:15px;
+            font-size:16px;
+            background-color:#FFFFFF;
+            border:2px solid #80CBC4;
+            outline:none;
+            border-radius:6px;
+        }
+
+        .url-input:focus{
+            border-color:#00695C;
+        }
+
+        .search-btn{
+            margin-top:25px;
+            padding:12px 40px;
+            font-size:16px;
+            background-color:#00695C;
+            color:#FFFFFF;
+            border:none;
+            cursor:pointer;
+            border-radius:30px;
+        }
+
+        .search-btn:hover{
+            background-color:#004D40;
+        }
+
+        .result-box{
+            margin-top:40px;
+            padding:25px;
+            background:#ffffff;
+            border-radius:12px;
+            border:2px solid #80CBC4;
+        }
+
+        .score{
+            font-size:28px;
+            font-weight:bold;
+            color:#004D40;
+            margin-bottom:10px;
+        }
+
+        .message{
+            font-size:20px;
+            font-weight:bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>PAUSE 1s</h1>
+    <p class="tagline">"Because trust should be checked, not assumed."</p>
+
+    <form method="POST">
+        <input 
+            type="text" 
+            name="url"
+            placeholder="Enter website URL..."
+            class="url-input"
+            required>
+        <br>
+        <button class="search-btn">Check Trust</button>
+    </form>
+
+    <!-- RESULT -->
+    {% if score %}
+    <div class="result-box">
+        <div class="score">
+            🔐 Trust Score: {{ score }}/100
+        </div>
+
+        <div class="message">
+            {{ message }}
+        </div>
+    </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
+
+
