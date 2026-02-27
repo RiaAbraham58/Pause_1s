@@ -1,29 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>PAUSE 1s</title>
-<style>
-body {
-    margin:0; padding:0; font-family: 'Courier New', monospace;
-    height:100vh; display:flex; justify-content:center; align-items:center;
-    background: url('{{ url_for("static", filename="landing_bg.jpeg") }}') no-repeat center center fixed;
-    background-size: cover; color:#00f;
-}
-.container { text-align:center; background-color: rgba(0,0,30,0.7); padding:50px; border-radius:20px; }
-h1 { font-size:50px; animation: pulse 2s infinite; }
-@keyframes pulse { 0%{transform:scale(1);}50%{transform:scale(1.1);}100%{transform:scale(1);} }
-button { padding:15px 40px; font-size:18px; border-radius:30px; cursor:pointer; background:#00f; color:#fff; border:none; margin-top:30px; }
-button:hover{ background:#0ff; }
-</style>
+    <meta charset="UTF-8">
+    <title>Pause 1s - Secure Browsing</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-<div class="container">
-    <h1>PAUSE 1s</h1>
-    <p>One second to analyze, one click to decide.</p>
-    <form action="/home">
-        <button type="submit">Start</button>
-    </form>
-</div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">Pause 1s</div>
+        <ul class="nav-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#how">How It Works</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Pause 1s</h1>
+            <p class="subtitle">
+                AI-Powered Website Safety Detection in Just One Second
+            </p>
+
+            <a href="/home" class="cta-btn">
+                Check Website
+            </a>
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section id="features" class="features">
+        <h2>Powerful Features</h2>
+        <div class="feature-cards">
+
+            <div class="card">
+                <h3>Real-Time Scanning</h3>
+                <p>Instantly analyze any URL for phishing or malicious threats.</p>
+            </div>
+
+            <div class="card">
+                <h3>AI-Based Detection</h3>
+                <p>Smart algorithms evaluate trust score with accuracy.</p>
+            </div>
+
+            <div class="card">
+                <h3>User-Friendly Results</h3>
+                <p>Simple trust score out of 100 with one-line explanation.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how" class="how">
+        <h2>How It Works</h2>
+        <div class="steps">
+            <div class="step">
+                <span>1</span>
+                <p>Paste the Website URL</p>
+            </div>
+
+            <div class="step">
+                <span>2</span>
+                <p>AI Analyzes Security Signals</p>
+            </div>
+
+            <div class="step">
+                <span>3</span>
+                <p>Receive Instant Trust Score</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <p>If you have any queries or security concerns, feel free to reach out.</p>
+
+        <div class="contact-info">
+            <p><strong>Email:</strong> support@pause1s-security.com</p>
+            <p><strong>Phone:</strong> +91 90000 12345</p>
+            <p><strong>Location:</strong> Kochi, Kerala, India</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2026 Pause 1s | Built for Secure Browsing
+    </footer>
+
 </body>
 </html>

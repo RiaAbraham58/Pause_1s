@@ -1,0 +1,319 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', monospace;
+    color: white;
+    scroll-behavior: smooth;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 20, 0.7);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: cyan;
+}
+
+/* ================= LANDING HERO ================= */
+
+.hero {
+    height: 100vh;
+    background:
+        linear-gradient(rgba(0,0,30,0.4), rgba(0,0,40,0.5)),
+        url("landing_bg.jpeg") center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-content {
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero h1 {
+    font-size: 70px;
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+/* BUTTON STYLE (GLOBAL) */
+
+button {
+    padding: 14px 40px;
+    border-radius: 30px;
+    border: none;
+    background: cyan;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px cyan;
+}
+
+/* CTA LINK BUTTON */
+
+.cta-btn {
+    display: inline-block;
+    padding: 15px 40px;
+    border-radius: 30px;
+    background: cyan;
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s ease;
+}
+
+.cta-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 25px cyan;
+}
+
+/* ================= FEATURES ================= */
+
+.features {
+    padding: 100px 50px;
+    background: #081021;
+    text-align: center;
+}
+
+.features h2 {
+    margin-bottom: 50px;
+    font-size: 40px;
+}
+
+.feature-cards {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #0f1b33;
+    padding: 30px;
+    border-radius: 15px;
+    width: 280px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0,255,255,0.3);
+}
+
+/* ================= HOW SECTION ================= */
+
+.how {
+    padding: 100px 50px;
+    text-align: center;
+    background: #0a1426;
+}
+
+.steps {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.step span {
+    display: inline-block;
+    font-size: 30px;
+    background: cyan;
+    color: black;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    line-height: 50px;
+    margin-bottom: 15px;
+}
+
+/* ================= CONTACT ================= */
+
+.contact {
+    padding: 100px 50px;
+    text-align: center;
+    background: #081021;
+}
+
+.contact h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.contact-info {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    padding: 20px;
+    text-align: center;
+    background: #050a14;
+    font-size: 14px;
+}
+
+/* ================= SCANNER PAGE ================= */
+
+.scan-page {
+    height: 100vh;
+    background:
+        linear-gradient(rgba(0,0,30,0.6), rgba(0,0,50,0.7)),
+        url("scan_bg.jpeg") center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.result-page {
+    height: 100vh;
+    background:
+        linear-gradient(rgba(0,0,30,0.6), rgba(0,0,50,0.7)),
+        url("result_bg.jpeg") center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* CONTENT OVER BACKGROUND */
+
+.overlay-content {
+    max-width: 600px;
+    padding: 20px;
+    animation: fadeInUp 0.8s ease;
+}
+
+.overlay-content h1 {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.overlay-content p {
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+/* INPUT FIELD */
+
+input {
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    border: none;
+    margin-bottom: 15px;
+    font-size: 15px;
+}
+
+/* SCORE DISPLAY */
+
+.score-display {
+    font-size: 60px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+/* TECHNICAL INFO */
+
+.technical-info p {
+    margin-bottom: 8px;
+}
+
+/* LINKS */
+
+.simple-link {
+    color: cyan;
+    text-decoration: none;
+}
+
+.simple-link:hover {
+    text-decoration: underline;
+}
+
+/* ERROR */
+
+.error {
+    background: rgba(255,0,0,0.3);
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+
+    .hero h1 {
+        font-size: 45px;
+    }
+
+    .feature-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .steps {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .overlay-content h1 {
+        font-size: 30px;
+    }
+}

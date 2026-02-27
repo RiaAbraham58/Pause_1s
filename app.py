@@ -46,17 +46,22 @@ def get_domain_age(domain):
         return 0
 
 # ---------------- ROUTES ----------------
+
+# Landing Page
 @app.route('/')
 def landing():
     return render_template("landing.html")
 
-@app.route('/home', methods=["GET","POST"])
+# Scanner Page
+@app.route('/home')
 def home():
     return render_template("index.html")
 
+# Analyze URL
 @app.route('/analyze', methods=['POST'])
 def analyze():
     user_url = request.form.get("url","").lower()
+
     if not user_url:
         return render_template("index.html", error="Please enter a valid URL")
 
@@ -85,12 +90,11 @@ def analyze():
     trust_score = 60 if prediction==1 else 30
     trust_score += int(probability*25)
 
-    # HTTPS check
     trust_score += 10 if user_url.startswith("https") else -10
 
-    # Domain age
     domain = extract_domain(user_url)
     domain_age = get_domain_age(domain)
+
     if domain_age >= 10:
         trust_score += 20
     elif domain_age >= 5:
@@ -102,15 +106,18 @@ def analyze():
     else:
         trust_score -= 10
 
-    # Suspicious keywords
     suspicious_words = ["login","verify","update","secure","account","bank","free","gift"]
     keyword_count = sum(word in user_url for word in suspicious_words)
-    if keyword_count >= 3: trust_score -= 20
-    elif keyword_count == 2: trust_score -= 10
-    elif keyword_count == 1: trust_score -= 5
 
-    # Final adjustments
+    if keyword_count >= 3:
+        trust_score -= 20
+    elif keyword_count == 2:
+        trust_score -= 10
+    elif keyword_count == 1:
+        trust_score -= 5
+
     trust_score = max(15, min(100, trust_score))
+
     if trust_score >= 75:
         message = "Safe — Website shows strong trust indicators."
     elif trust_score >= 45:
@@ -118,7 +125,6 @@ def analyze():
     else:
         message = "Dangerous — Multiple suspicious signals found."
 
-    # Technical details
     technical = {
         "HTTPS Used": "Yes" if user_url.startswith("https") else "No",
         "URL Length": length_url,
