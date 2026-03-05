@@ -4,6 +4,17 @@
     <title>Pause 1s - Result</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <script>
+        function toggleView() {
+            var section = document.getElementById("extra-info");
+            if (section.style.display === "none") {
+                section.style.display = "block";
+            } else {
+                section.style.display = "none";
+            }
+        }
+    </script>
 </head>
 
 <body class="result-page">
@@ -16,18 +27,59 @@
             {{ score }}/100
         </div>
 
-        <p class="result-message">{{ message }}</p>
+        <p class="result-message">
+            Risk Level: <strong>{{ risk }}</strong>
+        </p>
 
         <div class="technical-info">
-            {% for key, value in technical.items() %}
+            {% for key, value in explanation.items() %}
                 <p><strong>{{ key }}:</strong> {{ value }}</p>
             {% endfor %}
         </div>
 
         <br>
-        <a href="/home" class="simple-link">Scan Another Website</a>
+
+        <!-- View More Button -->
+        <button onclick="toggleView()">View More</button>
+
+        <!-- Hidden Section -->
+        <div id="extra-info" style="display:none; margin-top:20px;">
+
+            <p><strong>Domain Age:</strong> {{ domain_age }}</p>
+
+            <p><strong>Suspicious Keywords Found:</strong>
+                {% if keywords %}
+                    {{ keywords | join(', ') }}
+                {% else %}
+                    None
+                {% endif %}
+            </p>
+
+            <p><strong>URL Length:</strong> {{ url_length }}</p>
+
+            <p><strong>HTTPS Used:</strong>
+                {% if https_flag %}
+                    Yes
+                {% else %}
+                    No
+                {% endif %}
+            </p>
+
+            <p><strong>Digit Count in URL:</strong> {{ digits }}</p>
+
+        </div>
+
         <br><br>
-        <a href="/" class="simple-link">← Back to Home</a>
+
+        <a href="{{ url_for('home') }}" class="simple-link">
+            Scan Another Website
+        </a>
+
+        <br><br>
+
+        <a href="{{ url_for('landing') }}" class="simple-link">
+            ← Back to Home
+        </a>
 
     </div>
 
