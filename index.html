@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pause 1s - Scan Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="scan-page">
+
+    <div class="overlay-content">
+        <h1>Pause 1s</h1>
+        <p>Enter a URL to analyze its trust level using AI detection</p>
+
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+
+        <form action="/analyze" method="POST">
+            <input type="text" name="url" placeholder="example.com" required>
+            <button type="submit">Analyze Website</button>
+        </form>
+
+        <br>
+        <a href="/" class="simple-link">← Back to Home</a>
+    </div>
+
+</body>
+</html>

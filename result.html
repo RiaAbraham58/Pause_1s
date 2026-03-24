@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pause 1s - Result</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <script>
+        function toggleView() {
+            var section = document.getElementById("extra-info");
+
+            if (section.style.display === "none") {
+                section.style.display = "block";
+            } else {
+                section.style.display = "none";
+            }
+        }
+    </script>
+</head>
+
+<body class="result-page">
+
+<div class="overlay-content">
+
+    <h1>Analysis Report</h1>
+
+    <!-- TRUST SCORE -->
+    <div class="score-display">
+        {{ score }}/100
+    </div>
+
+    <!-- RISK LEVEL -->
+    <p class="result-message">
+        Risk Level: <strong>{{ risk }}</strong>
+    </p>
+
+    <!-- RECOMMENDATION -->
+    <p class="recommendation">
+        <strong>Recommendation:</strong> {{ recommendation }}
+    </p>
+
+    <!-- TECHNICAL EXPLANATION -->
+    <div class="technical-info">
+
+        {% for key, value in explanation.items() %}
+            <p><strong>{{ key }}:</strong> {{ value }}</p>
+        {% endfor %}
+
+    </div>
+
+    <br>
+
+    <!-- VIEW MORE BUTTON -->
+    <button onclick="toggleView()">View More</button>
+
+    <!-- EXTRA INFO -->
+    <div id="extra-info" style="display:none; margin-top:20px;">
+
+        <p><strong>Domain Age:</strong> {{ domain_age }}</p>
+
+        <p><strong>MX Record Available:</strong>
+            {% if mx_flag %}
+                Yes
+            {% else %}
+                No
+            {% endif %}
+        </p>
+
+        <p><strong>HTTPS Used:</strong>
+            {% if https_flag %}
+                Yes
+            {% else %}
+                No
+            {% endif %}
+        </p>
+
+        <p><strong>URL Length:</strong> {{ url_length }}</p>
+
+        <p><strong>Digit Count in URL:</strong> {{ digits }}</p>
+
+        <p><strong>Suspicious Keywords Found:</strong>
+            {% if keywords %}
+                {{ keywords | join(', ') }}
+            {% else %}
+                None
+            {% endif %}
+        </p>
+
+    </div>
+
+    <br><br>
+
+    <!-- NAVIGATION LINKS -->
+
+    <a href="{{ url_for('home') }}" class="simple-link">
+        Scan Another Website
+    </a>
+
+    <br><br>
+
+    <a href="{{ url_for('landing') }}" class="simple-link">
+        ← Back to Home
+    </a>
+
+</div>
+
+</body>
+</html>
