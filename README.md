@@ -1,6 +1,6 @@
 # Pause 1s – Website Trust Meter for Phishing Detection
 
-> **Because trust should be checked, not assumed.**
+> **One second to analyze , one click to decide.**
 
 ## 📌 About the Project
 
@@ -121,8 +121,4 @@ Future improvements may include:
 **B.Tech CSE – Cyber Security**  
 **Muthoot Institute of Technology and Science**
 
----
 
-### 📌 Project Tagline
-
-**"Because trust should be checked, not assumed."**
