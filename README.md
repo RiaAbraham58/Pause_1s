@@ -107,7 +107,7 @@ Future improvements may include:
 - Threat intelligence integration
 - User feedback mechanisms
 - Browser extension
-- Visual risk indicators
+
 - Mobile compatibility
 
 ## 👩‍💻 Project Team
